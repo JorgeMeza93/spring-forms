@@ -18,10 +18,12 @@ import com.cursodespring.springboot.form.app.models.domain.Usuario;
 public class FormController {
 	@GetMapping("/form")
 	public String form(Model model){
+		Usuario usuario = new Usuario();
 		model.addAttribute("titulo", "Formulario usuarios");
+		model.addAttribute("usuario", usuario);
 		return "form";
 	}
-	@PostMapping
+	@PostMapping("/form")
 	public String procesar(@Valid Usuario usuario, BindingResult result, Model model){
 		model.addAttribute("titulo", "Resultado formulario");
 		if(result.hasErrors()){
