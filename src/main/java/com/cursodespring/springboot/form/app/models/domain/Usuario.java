@@ -1,15 +1,35 @@
 package com.cursodespring.springboot.form.app.models.domain;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 	@NotEmpty
+	@Size(min = 3, max=23)
+	private String nombre;
+	@NotEmpty(message = "Este campo es obligatorio. Asi lo marca")
+	private String apellido;
+	@NotEmpty
 	private String username;
 	@NotEmpty
+	@Email
 	private String email;
 	@NotEmpty
 	private String password;
-	
+	private String identificador;
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -27,6 +47,12 @@ public class Usuario {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getIdentificador() {
+		return identificador;
+	}
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
 	}
 	
 }
