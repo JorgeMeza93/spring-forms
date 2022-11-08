@@ -2,13 +2,14 @@ package com.cursodespring.springboot.form.app.models.domain;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
 	@NotEmpty
 	@Size(min = 3, max=23)
 	private String nombre;
-	@NotEmpty(message = "Este campo es obligatorio. Asi lo marca")
+	@NotEmpty(message = "Este campo es obligatorio. Asi lo marca la constitución")
 	private String apellido;
 	@NotEmpty
 	private String username;
@@ -17,6 +18,7 @@ public class Usuario {
 	private String email;
 	@NotEmpty
 	private String password;
+	@Pattern(regexp = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}")
 	private String identificador;
 	public String getNombre() {
 		return nombre;
