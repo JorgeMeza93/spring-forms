@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,10 +16,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.cursodespring.springboot.form.app.models.domain.Usuario;
+import com.cursodespring.springboot.form.app.validadores.UsuarioValidador;
 
 @Controller
 @SessionAttributes("usuario")
 public class FormController {
+	@Autowired
+	private UsuarioValidador validador;
+	
 	@GetMapping("/form")
 	public String form(Model model){
 		Usuario usuario = new Usuario();
@@ -31,6 +36,7 @@ public class FormController {
 	}
 	@PostMapping("/form")
 	public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status){
+		//validador.validate(usuario, result);
 		model.addAttribute("titulo", "Resultado formulario");
 		if(result.hasErrors()){
 			Map<String, String> errores = new HashMap<>();

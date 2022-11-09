@@ -1,7 +1,10 @@
 package com.cursodespring.springboot.form.app.models.domain;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -20,6 +23,10 @@ public class Usuario {
 	private String password;
 	@Pattern(regexp = "[0-9]{2}[.][0-9]{3}[.][0-9]{3}[-][A-Z]{1}")
 	private String identificador;
+	@NotNull
+	@Min(5)
+	@Max(300)
+	private Integer cuenta;
 	public String getNombre() {
 		return nombre;
 	}
@@ -56,5 +63,10 @@ public class Usuario {
 	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
-	
+	public Integer getCuenta() {
+		return cuenta;
+	}
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
 }

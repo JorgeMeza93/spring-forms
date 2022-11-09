@@ -12,24 +12,21 @@
 			<div>
 				<input type="text" name="identificador" id="identificador" th:value="${usuario.identificador}">
 			</div>
-			<div th:if="${error != null && error.containsKey('identificador')}" th:text="${error.identificador}">
-			</div>
+			<div th:if="${error != null && error.containsKey('identificador')}" th:text="${error.identificador}"></div>
 		</div>
 		<div>
 			<label for="nombre">Nombre</label>
 			<div>
 				<input type="text" name="nombre" id="nombre" th:value="${usuario.nombre}">
 			</div>
-			<div th:if="${error != null && error.containsKey('nombre')}" th:text="${error.nombre}">
-			</div>
+			<div th:if="${error != null && error.containsKey('nombre')}" th:text="${error.nombre}"></div>
 		</div>
 		<div>
 			<label for="apellido">Apellido</label>
 			<div>
 				<input type="text" name="apellido" id="apellido" th:value="${usuario.apellido}">
 			</div>
-			<div th:if="${error != null && error.containsKey('apellido')}" th:text="${error.apellido}">
-			</div>
+			<div th:if="${error != null && error.containsKey('apellido')}" th:text="${error.apellido}"></div>
 		</div>
 		<div>
 			<label for="username">Username</label>
@@ -51,7 +48,15 @@
 			<div>
 				<input type="text" id="email" th:field="*{email}">
 			</div>
-			<div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}">
+			<div th:if="${error != null && error.containsKey('email')}" th:text="${error.email}"></div>
+		</div>
+		<div>
+			<label for="cuenta">Cuenta</label>
+			<div>
+				<input type="text" name="cuenta" id="cuenta" th:value="${usuario.cuenta}">
+			</div>
+			<div th:if="${error != null && error.containsKey('cuenta')}" th:text="${error.cuenta}">
+			</div>
 		</div>
 		<div>
 			<div>
