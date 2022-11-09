@@ -59,6 +59,24 @@
 			</div>
 		</div>
 		<div>
+			<label for="fechaNacimiento">Fecha de Nacimiento</label>
+			<div>
+				<input type="text" name="fechaNacimiento" id="fechaNacimiento" th:value="${usuario.fechaNacimiento}">
+			</div>
+			<div th:if="${error != null && error.containsKey('fechaNacimiento')}" th:text="${error.fechaNacimiento}">
+			</div>
+		</div>
+		<div>
+			<label for="pais">País</label>
+			<div>
+				<select type="text" name="pais" id="pais" th:value="${usuario.pais}">
+					<option value="">--Seleccionar--</option>
+					<option th:each="pais: ${paisesMap.entrySet()}" th:text="${pais.value}" th:value="${pais.key}"></option>
+				</select>
+			</div>
+			<div th:if="${error != null && error.containsKey('pais')}" th:text="${error.pais}"></div>
+		</div>
+		<div>
 			<div>
 				<input type="submit" value="Enviar">
 			</div>
