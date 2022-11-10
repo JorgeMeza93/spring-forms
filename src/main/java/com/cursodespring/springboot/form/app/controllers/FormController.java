@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.cursodespring.springboot.form.app.models.domain.Pais;
 import com.cursodespring.springboot.form.app.models.domain.Usuario;
 import com.cursodespring.springboot.form.app.validadores.UsuarioValidador;
 
@@ -71,6 +72,11 @@ public class FormController {
 	@ModelAttribute("paises")
 	public List<String> paises(){
 		return Arrays.asList("España", "México", "Argentina", "Chile", "Colombia", "Perú", "Venezuela");
+	}
+	@ModelAttribute("listaPaises")
+	public List<Pais> listaPaises(){
+		return Arrays.asList(new Pais(34, "ESP", "España"), new Pais(52, "MEX", "México"), new Pais(54, "ARG", "Argentina"), 
+				new Pais(56, "COL", "Colombia"), new Pais(51, "PER", "Perú"), new Pais(58, "VZL", "Venezuela"));
 	}
 	@ModelAttribute("paisesMap")
 	public Map<String, String> paisesMap(){
